@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="{%static 'images/Menu.png'%}"
+            width="30px"
+            style="filter: invert(100%)"
+          />
+        </label>
+        <label class="logo"
+          ><h1 id="logotxt">PLUG<span>POST</span></h1></label
+        >
+        <ul>
+          <li><a href="{%url 'home'%}" class="not_active">Home</a></li>
+          <li><a href="#takecourse" class="not_active">Blog</a></li>
+          <li><a href="#taketoabout" class="not_active">About us</a></li>
+          <li><a href="#con" class="active">Login</a></li>
+          <li>
+            <a id="signin" href="#logintext"
+              ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <a href="{%url 'home'%}" id="back_btn"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
+    <div style="display: flex; align-items: center; justify-content: center">
+      <div
+        style="
+          width: 800px;
+          padding: 20px 0;
+          border: 3px solid #f04e36;
+          border-radius: 20px;
+          box-shadow: 0px 0px 10px #f04e36;
+        "
+      >
+        <form action="">
+          <h1 id="logintext">Log<span>in</span></h1>
+          <h1
+            style="
+              font-family: 'ubuntu';
+              color: white;
+              text-align: center;
+              margin-top: 20px;
+              margin-bottom: 20px;
+            "
+          >
+            Enter Username
+          </h1>
+          <span
+            style="display: flex; align-items: center; justify-content: center"
+            ><input
+              type="text"
+              placeholder="Username"
+              style="
+                background-color: transparent;
+                border: 2px solid white;
+                outline: none;
+                font-size: 20px;
+                text-align: center;
+                width: 400px;
+                color: white;
+                border-radius: 20px;
+              "
+          /></span>
+          <h1
+            style="
+              font-family: 'ubuntu';
+              color: white;
+              text-align: center;
+              margin-top: 20px;
+              margin-bottom: 20px;
+            "
+          >
+            Enter Password
+          </h1>
+          <span
+            style="display: flex; align-items: center; justify-content: center"
+            ><input
+              type="text"
+              placeholder="Password"
+              style="
+                background-color: transparent;
+                border: 2px solid white;
+                outline: none;
+                font-size: 20px;
+                text-align: center;
+                width: 400px;
+                color: white;
+                border-radius: 20px;
+              "
+          /></span>
+          <span
+            style="display: flex; align-items: center; justify-content: center"
+            ><button id="sub_btn" value="submit">Submit</button></span
+          >
+        </form>
+        <h2 id="taketosignup">I Don't Have A Account? <a>Sign Up</a></h2>
+      </div>
+    </div>
+  </body>
+</html>

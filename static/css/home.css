@@ -286,3 +286,62 @@ body{
     background-color: #f04e36;
     border-radius: 20px;
   }
+
+/******************************************************************************************************************************************
+********************************************************************************************************************************************
+**********************************************************************************************************************************************
+**********************************************************************************************************************************************
+********************************************************************************************************************************************/
+  #back_btn{
+    color: #f04e36;
+    display: block;
+    width: 150px;
+    text-align: center;
+    background-color: white;
+    font-size: 3em;
+    margin-left: 20px;
+    font-family: 'poppins';
+    font-weight: 500;
+    padding: 0px 15px;
+    margin-top: 50px;
+    border-radius: 30px;
+  }
+  #back_btn:hover{
+    color: white;
+    background-color: #f04e36;
+  }
+  #logintext{
+    font-family: 'Abel';
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+   text-align: center;
+    font-size: 5em;
+  }
+  #logintext span{
+    font-family: 'Bebas Neue';
+    color: #f04e36;
+  }
+  #taketosignup
+  {
+    font-family: 'ubuntu';
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+   text-align: center;
+    font-size: 2em;
+  }
+  #taketosignup a{
+    font-family: 'ubuntu';
+    color: #f04e36;
+  }
+  #sub_btn{
+    background-color: #f04e36;
+    color: white;
+    font-family: 'poppins';
+    font-size: 20px;
+    padding: 2px 15px;
+    border: 0;
+    border-radius: 20px;
+    margin: 30px 0;
+  }
