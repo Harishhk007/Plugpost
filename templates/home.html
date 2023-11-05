@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="{%static 'images/Menu.png'%}"
+            width="30px"
+            style="filter: invert(100%)"
+          />
+        </label>
+        <label class="logo"
+          ><h1 id="logotxt">PLUG<span>POST</span></h1></label
+        >
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#takecourse" class="not_active">Blog</a></li>
+          <li><a href="#taketoabout" class="not_active">Services</a></li>
+          <li><a href="#con" class="not_active">About us</a></li>
+          <li>
+            <a id="signin" href="#logintext"
+              ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+      "
+    >
+      <div
+        style="
+          width: 1350px;
+          padding: 15px;
+          border: 3px solid #f04e36;
+          border-radius: 20px;
+          box-shadow: 0px 0px 10px #f04e36;
+        "
+      >
+        <div style="width: 100%">
+          <h1
+            style="
+              font-family: 'poppins';
+              color: white;
+              font-weight: 500;
+              font-size: 4em;
+            "
+          >
+            Discover Nice Articles Here
+          </h1>
+
+          <img
+            src="{%static 'images/Youtube.png'%}"
+            width="40px"
+            style="float: right; margin-top: -35px"
+          />
+          <img
+            src="{%static 'images/Twitter.png'%}"
+            width="40px"
+            style="float: right; margin-top: -35px"
+          />
+        </div>
+        <p
+          style="
+            font-family: 'poppins';
+            color: grey;
+            font-weight: 400;
+            font-size: 15px;
+          "
+        >
+          All The Articles And Contents Of The Site Have Been
+          <span style="color: white"> Updated Today </span>And You Can Find Your
+          <span style="color: white"> Article And Contents </span> Quickly And
+          Without Any Problems.
+        </p>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <div
+            style="
+              font-family: 'popins';
+              font-size: 2em;
+              border-radius: 20px;
+              padding: 5px 15px;
+              border: 2px solid white;
+              width: 350px;
+            "
+          >
+            <form action="">
+              <input
+                type="text"
+                placeholder="Search"
+                style="
+                  background-color: transparent;
+                  border: 0;
+                  color: #fff;
+                  font-family: 'poppins';
+                  margin-left: 20px;
+                  outline: none;
+                "
+              />
+              <button
+                value="submit"
+                style="background-color: transparent; border: 0; outline: 0"
+              >
+                <i class="fa fa-search" style="color: #fff"></i>
+              </button>
+            </form>
+          </div>
+          <div>
+            <a href="" id="cat-home">All</a>
+            <a href="" id="cat-home">Technology</a>
+            <a href="" id="cat-home">Sports</a>
+            <a href="" id="cat-home">Design</a>
+            <a href="" id="cat-home">Programming</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="display: block; margin-top: 30px">
+      <div
+        class="col-lg-12"
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <div class="slideshow-container">
+          <!-- Slide 1 -->
+          <div class="mySlides">
+            <img src="{%static 'images\slide1.jpg'%}" id="img-slide" />
+            <a href=""><div class="text">Read Now</div></a>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="mySlides">
+            <img
+              src="{%static 'images\slide2.jpg'%}"
+              alt="Slide 2"
+              id="img-slide"
+            />
+            <a href=""><div class="text">Read Now</div></a>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="mySlides">
+            <img
+              id="img-slide"
+              src="{%static 'images\slide3.jpg'%}"
+              alt="Slide 3"
+            />
+            <a href=""></a>
+            <div class="text">Read Now</div>
+          </div>
+
+          <!-- Navigation dots -->
+          <div style="text-align: center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 4000); // Change image every 2 seconds (2000 milliseconds)
+      }
+    </script>
+  </body>
+</html>
