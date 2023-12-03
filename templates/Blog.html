@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blog - Plugpost</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body class="blogbody">
+    <div>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="{%static 'images/Menu.png'%}"
+            width="30px"
+            style="filter: invert(100%)"
+          />
+        </label>
+        <label class="logo"
+          ><h1 id="logotxt">PLUG<span>POST</span></h1></label
+        >
+        <ul>
+          <li><a href="{%url 'lhome'%}" class="not_active">Home</a></li>
+          <li><a href="#" class="active">Blog</a></li>
+          <li><a href="#taketoabout" class="not_active">About us</a></li>
+          <li><a href="{%url 'login'%}" class="not_active">Logout</a></li>
+          <li>
+            <a id="signin" href="#logintext"
+              ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <h1 id="logintext">PUBLISH A <span>BLOG</span></h1>
+
+    <form
+      action="{% url 'lhome' %}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <h2 class="bloglabel">Title</h2>
+      <span style="display: flex; align-items: center; justify-content: center"
+        >{{ form.Title }}</span
+      >
+
+      <h2 class="bloglabel">Description</h2>
+      <span style="display: flex; align-items: center; justify-content: center"
+        >{{ form.Desc }}</span
+      >
+
+      <h2 class="bloglabel">Category</h2>
+      <span
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: -30px;
+        "
+        >{{ form.category }}</span
+      >
+
+      <h2 class="bloglabel">Add A Cover Image</h2>
+      <span style="display: flex; align-items: center; justify-content: center"
+        >{{ form.Cover_img }}</span
+      >
+
+      <h2 class="bloglabel">Write Your Article</h2>
+      <span style="display: flex; align-items: center; justify-content: center"
+        >{{ form.Article }}</span
+      >
+
+      <h2 class="bloglabel">Add Related Image</h2>
+      <span style="display: flex; align-items: center; justify-content: center">
+        {{ form.related_img }}</span
+      >
+      <span
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          display: none;
+        "
+      >
+        {{ form.Blog_User }}</span
+      >
+
+      <span style="display: flex; align-items: center; justify-content: center">
+        <button type="submit" class="publish">Publish</button></span
+      >
+    </form>
+
+    {% for i in yours %}
+    <div class="article">
+      <h2 style="color: #333; font-size: 24px; font-weight: bold">
+        {{ i.Title }}
+      </h2>
+      <p style="color: #666; font-size: 16px">{{ i.Desc }}</p>
+      <p style="color: #999; font-size: 14px">Category: {{ i.category }}</p>
+      <img
+        src="{{ i.Cover_img }}"
+        alt="Cover Image"
+        style="max-width: 100%; height: auto"
+      />
+      <p style="color: #444; font-size: 18px">{{ i.Article }}</p>
+      <img
+        src="{{ i.related_img }}"
+        alt="Related Image"
+        style="max-width: 100%; height: auto"
+      />
+    </div>
+    {% endfor %}
+  </body>
+</html>

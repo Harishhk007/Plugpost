@@ -51,78 +51,128 @@
     <a href="{%url 'home'%}" id="back_btn"
       ><i class="fa fa-arrow-left"></i>Back</a
     >
-    <div style="display: flex; align-items: center; justify-content: center">
+
+    <div
+      class="row"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
+    >
       <div
         style="
-          width: 800px;
-          padding: 20px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border: 3px solid #f04e36;
-          border-radius: 20px;
-          box-shadow: 0px 0px 10px #f04e36;
+          border-radius: 30px;
+          overflow: hidden;
+          box-shadow: 0px 0px 20px #f04e36;
         "
       >
-        <form action="">
-          <h1 id="logintext">Log<span>in</span></h1>
-          <h1
-            style="
-              font-family: 'ubuntu';
-              color: white;
-              text-align: center;
-              margin-top: 20px;
-              margin-bottom: 20px;
-            "
-          >
-            Enter Username
-          </h1>
-          <span
-            style="display: flex; align-items: center; justify-content: center"
-            ><input
-              type="text"
-              placeholder="Username"
+        <div
+          class="col-lg"
+          style="display: flex; align-items: center; justify-content: center"
+        >
+          <img src="{%static 'images/loginimg.png'%}" width="90%" />
+        </div>
+        <div
+          class="col-lg"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f04e36;
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+            padding: 20px;
+          "
+        >
+          <form action="" method="POST">
+            {% csrf_token %}
+            <h1 id="logintext">Log<span style="color: black">in</span></h1>
+            <h1
               style="
-                background-color: transparent;
-                border: 2px solid white;
-                outline: none;
-                font-size: 20px;
-                text-align: center;
-                width: 400px;
+                font-family: 'ubuntu';
                 color: white;
-                border-radius: 20px;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
               "
-          /></span>
-          <h1
-            style="
-              font-family: 'ubuntu';
-              color: white;
-              text-align: center;
-              margin-top: 20px;
-              margin-bottom: 20px;
-            "
-          >
-            Enter Password
-          </h1>
-          <span
-            style="display: flex; align-items: center; justify-content: center"
-            ><input
-              type="text"
-              placeholder="Password"
+            >
+              Enter Username
+            </h1>
+            <span
               style="
-                background-color: transparent;
-                border: 2px solid white;
-                outline: none;
-                font-size: 20px;
-                text-align: center;
-                width: 400px;
-                color: white;
-                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
               "
-          /></span>
-          <span
-            style="display: flex; align-items: center; justify-content: center"
-            ><button id="sub_btn" value="submit">Submit</button></span
-          >
-        </form>
-        <h2 id="taketosignup">I Don't Have A Account? <a>Sign Up</a></h2>
+              ><input
+                type="text"
+                placeholder="Username"
+                style="
+                  background-color: transparent;
+                  border: 2px solid white;
+                  outline: none;
+                  font-size: 20px;
+                  text-align: center;
+                  width: 400px;
+                  color: white;
+                  border-radius: 20px;
+                "
+                id="loguser"
+                name="loguser"
+            /></span>
+            <h1
+              style="
+                font-family: 'ubuntu';
+                color: white;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+              "
+            >
+              Enter Password
+            </h1>
+            <span
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+              ><input
+                type="text"
+                placeholder="Password"
+                style="
+                  background-color: transparent;
+                  border: 2px solid white;
+                  outline: none;
+                  font-size: 20px;
+                  text-align: center;
+                  width: 400px;
+                  color: white;
+                  border-radius: 20px;
+                "
+                id="logpas"
+                name="logpas"
+            /></span>
+            <span
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+              ><button id="sub_btn" value="submit">Submit</button></span
+            >
+            <h2 id="taketosignup">
+              I Don't Have an Account ?
+              <a href="{%url 'signup'%}" style="color: black">Sign up</a>
+            </h2>
+          </form>
+        </div>
       </div>
     </div>
   </body>

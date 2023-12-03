@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+    <div>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="{%static 'images/Menu.png'%}"
+            width="30px"
+            style="filter: invert(100%)"
+          />
+        </label>
+        <label class="logo"
+          ><h1 id="logotxt">PLUG<span>POST</span></h1></label
+        >
+        <ul>
+          <li><a href="{%url 'home'%}" class="not_active">Home</a></li>
+          <li><a href="#takecourse" class="not_active">Blog</a></li>
+          <li><a href="#taketoabout" class="not_active">About us</a></li>
+          <li><a href="#con" class="active">Login</a></li>
+          <li>
+            <a id="signin" href="#logintext"
+              ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <a href="{%url 'home'%}" id="back_btn"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
+
+  <span style="display: flex;align-items: center;justify-content: center;"><div class="formdiv" style="margin-top: 20px;">
+      <h1 id="logintext" style="margin: 40px;">SIGN<span >UP</span></h1>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+       <div class="flexdiv">{{ form.as_p }}</div> 
+      <div style=" display:flex;align-items: center;justify-content: center;">  <button
+        type="submit"
+        id="signup-sub"
+        
+      >
+        Save
+      </button></div></form>
+      </div></span>  
+        
+      
+    </div>
+  </body>
+</html>
