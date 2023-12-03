@@ -66,7 +66,8 @@ def blog(request):
             form.instance.Blog_User = blog_user
             form.save()
             submitted = True
-            return render(request, "Blog.html", {'form': form, 'submitted': submitted})
+            url = reverse('lhome')
+            return HttpResponseRedirect(url)
 
         else:
             print(form.errors)  # Output form errors to console for debugging if needed

@@ -457,3 +457,107 @@ body{
   color: #f04e36;
   border: 2px solid #f04e36;
 }
+
+.card-container{
+  
+  display: flex;
+  padding: 60px 0px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card{
+  position: relative;
+  width: 350px;
+  height: 300px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0px 5px rgba(0,0,0,1);
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+.card:hover{
+  height: 400px;
+}
+.card .imgBx{
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  height: 220px;
+  background: #333;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.card:hover .imgBx{
+  top: -100px;
+  scale: 0.75;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+.card .imgBx img{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+.card .content{
+  position: absolute;
+  top:255px;
+  width: 100%;
+  padding: 0 30px;
+  height: 35px;
+ 
+  overflow: hidden;
+  text-align: center;
+  transition: 0.5s;
+}
+.card:hover .content{
+  top: 130px;
+  height: 250px;
+}
+.card .content h4{
+  font-size: 1.5em;
+  font-weight: 700;
+
+  font-family: 'poppins';
+  color:#f04e36;
+}
+.card .content .descp{
+  color: black;
+  font-weight: 600;
+  font-size: 1em;
+  font-family: 'poppins';
+  height: 100px;
+  overflow: hidden;
+  text-align: center;
+}
+.card .content .catp{
+  color:#717171;
+  font-weight: 600;
+  font-size: 1.5em;
+  font-family: 'poppins';
+  text-align: center;
+}
+.card .content a{
+position: relative;
+
+display: inline-block;
+padding: 12px 25px;
+transition: 1s;
+font-weight: 600;
+background: #f04e36;text-decoration: none;
+font-family: 'poppins';
+
+border-radius: 8px;
+color: black;
+}
+.card .content a:hover{
+  color: #f04e36;
+  background: black;
+}

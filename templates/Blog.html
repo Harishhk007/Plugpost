@@ -18,9 +18,9 @@
       rel="stylesheet"
       href="{% static 'bootstrap/css/bootstrap.min.css' %}"
     />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
-  <body class="blogbody">
+  <body class="blogbody" style="overflow-x: hidden">
     <div>
       <nav>
         <input type="checkbox" id="check" />
@@ -49,11 +49,7 @@
     </div>
     <h1 id="logintext">PUBLISH A <span>BLOG</span></h1>
 
-    <form
-      action="{% url 'lhome' %}"
-      method="post"
-      enctype="multipart/form-data"
-    >
+    <form action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <h2 class="bloglabel">Title</h2>
       <span style="display: flex; align-items: center; justify-content: center"
@@ -106,25 +102,24 @@
       >
     </form>
 
-    {% for i in yours %}
-    <div class="article">
-      <h2 style="color: #333; font-size: 24px; font-weight: bold">
-        {{ i.Title }}
-      </h2>
-      <p style="color: #666; font-size: 16px">{{ i.Desc }}</p>
-      <p style="color: #999; font-size: 14px">Category: {{ i.category }}</p>
-      <img
-        src="{{ i.Cover_img }}"
-        alt="Cover Image"
-        style="max-width: 100%; height: auto"
-      />
-      <p style="color: #444; font-size: 18px">{{ i.Article }}</p>
-      <img
-        src="{{ i.related_img }}"
-        alt="Related Image"
-        style="max-width: 100%; height: auto"
-      />
+    <h1 id="logintext" style="text-align: left; margin-left: 40px">
+      YOUR <span>BLOGS</span>
+    </h1>
+    <div class="card-container" id="course-1">
+      {% for i in yours %}
+
+      <div class="card">
+        <div class="imgBx"><img src="{{ i.Cover_img.url}}" alt="" /></div>
+        <div class="content">
+          <h4>{{ i.Title }}</h4>
+          <p class="catp">Category: {{ i.category }}</p>
+          <p class="descp">{{ i.Desc }}</p>
+
+          <a href="#fill-form">Read More</a>
+        </div>
+      </div>
+
+      {% endfor %}
     </div>
-    {% endfor %}
   </body>
 </html>
