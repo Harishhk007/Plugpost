@@ -219,5 +219,22 @@
         setTimeout(showSlides, 4000); // Change image every 2 seconds (2000 milliseconds)
       }
     </script>
+
+    <div class="card-container" id="course-1">
+      {% for i in yours %}
+
+      <div class="card">
+        <div class="imgBx"><img src="{{ i.Cover_img.url}}" alt="" /></div>
+        <div class="content">
+          <h4>{{ i.Title }}</h4>
+          <p class="catp">Category: {{ i.category }}</p>
+          <p class="descp">{{ i.Desc }}</p>
+
+          <a href="#fill-form">Read More</a>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
   </body>
 </html>

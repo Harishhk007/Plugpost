@@ -10,7 +10,8 @@ from django.http import HttpResponseRedirect
 def home(request):
     return render(request,"home.html")
 def lhome(request):
-    return render(request,"LHOME.html")
+    your_blog = Blogs.objects.all().order_by('-Blog_id')
+    return render(request,"LHOME.html",{'yours':your_blog})
 def login(request):
     if request.method == 'POST':
         user = request.POST.get('loguser')
@@ -39,13 +40,16 @@ def signup(request):
     if request.method == 'POST':
         form = Usersform(request.POST,request.FILES)
         if form.is_valid():
-            form.save()
-            submitted = True
-            return render(request, "signup.html", {'form': form, 'submitted': submitted})
-        else:
-            # If there are errors, you might want to handle them.
-            # For example, you can display the errors in the form.
-            print(form.errors)  # This will print form errors in the console for debugging purposes
+            username = form.cleaned_data['User_Name']
+            if Users.objects.filter(User_Name=username).exists():
+                # If username exists, add an error to the form
+                form.add_error('User_Name', 'This username is already taken.')
+            else:
+                # If username is unique, save the form data
+                form.save()
+                submitted = True
+                return render(request, "signup.html", {'form': form, 'submitted': submitted})
+        
     else:
         form = Usersform()
 

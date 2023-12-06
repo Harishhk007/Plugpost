@@ -19,12 +19,14 @@ class Users(models.Model):
 
 class Blogs(models.Model):
     Title=models.CharField(max_length=1000,null=False,blank=False)
+    Blog_id=models.AutoField(primary_key=True,auto_created=True)
     Desc=models.CharField(max_length=1000,null=False,blank=False)
     category=models.CharField(max_length=100,null=False,blank=False)
     Cover_img=models.ImageField(null=True,blank=True,upload_to="images/")
     Article=models.CharField(max_length=30000,null=False,blank=False)
     related_img=models.ImageField(null=True,blank=True,upload_to="images/")
     Blog_User=models.CharField(max_length=100,default="Unknown")
+    
 
     def __str__(self):
         return f"{self.Title} - {self.Blog_User}"

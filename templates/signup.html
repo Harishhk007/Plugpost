@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="{% static 'bootstrap/css/bootstrap.min.css' %}"
     />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
   <body>
     <div>
@@ -35,7 +35,7 @@
           ><h1 id="logotxt">PLUG<span>POST</span></h1></label
         >
         <ul>
-          <li><a href="{%url 'home'%}" class="not_active">Home</a></li>
+          <li><a href="" class="not_active">Home</a></li>
           <li><a href="#takecourse" class="not_active">Blog</a></li>
           <li><a href="#taketoabout" class="not_active">About us</a></li>
           <li><a href="#con" class="active">Login</a></li>
@@ -48,7 +48,7 @@
       </nav>
     </div>
 
-    <a href="{%url 'home'%}" id="back_btn"
+    <a href="{%url 'login'%}" id="back_btn"
       ><i class="fa fa-arrow-left"></i>Back</a
     >
 
@@ -56,7 +56,46 @@
       <h1 id="logintext" style="margin: 40px;">SIGN<span >UP</span></h1>
       <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
-       <div class="flexdiv">{{ form.as_p }}</div> 
+       <table style="width: 100%;">
+        <tr>
+          <th>USERNAME</th>
+          <td>{{form.User_Name}}</td>
+          <td>{{form.User_Name.errors}}</td>
+        </tr>
+        <tr>
+          <th>PASSWORD</th>
+          <td>{{form.User_Password}}</td>
+        </tr>
+        <tr>
+          <th>FULL NAME</th>
+          <td>{{form.User_Fullname}}</td>
+        </tr>
+        <tr>
+          <th>AGE</th>
+          <td>{{form.User_Age}}</td>
+        </tr>
+        <tr>
+          <th>PROFILE IMAGE</th>
+          <td>{{form.User_Img}}</td>
+        </tr>
+        <tr>
+          <th>GENDER</th>
+          <td>{{form.User_Gender}}</td>
+        </tr>
+        <tr>
+          <th>PHONE NUMBER</th>
+          <td>{{form.User_Phone}}</td>
+        </tr>
+        <tr>
+          <th>EMAIL</th>
+          <td>{{form.User_Email}}</td>
+        </tr>
+        <tr>
+          <th>DATE OF BIRTH</th>
+          <td>{{form.User_Dob}}</td>
+        </tr>
+
+       </table> 
       <div style=" display:flex;align-items: center;justify-content: center;">  <button
         type="submit"
         id="signup-sub"
