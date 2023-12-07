@@ -25,5 +25,7 @@ urlpatterns = [
     path('home/',views.lhome,name="lhome"),
     path('',views.login,name="login"),
     path('signup/',views.signup,name="signup"),
-    path('blog/',views.blog,name="blog")
+    path('blog/',views.blog,name="blog"),
+    path('read/<int:Blog_id>/',views.read,name="read"),
+    
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -83,3 +83,10 @@ def blog(request):
         submitted = True
     your_blog = Blogs.objects.filter(Blog_User=blog_user)
     return render(request, "Blog.html", {'form': form, 'submitted': submitted,'yours':your_blog})
+
+def read(request,Blog_id):
+    read = get_object_or_404(Blogs, Blog_id=Blog_id)
+    name=read.Blog_User
+    print(name)
+    user = get_object_or_404(Users, User_Name=name)
+    return render(request,"read.html",{"read":read,"user":user})

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blog - Plugpost</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body class="blogbody" style="overflow-x: hidden">
+    <div>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <img
+            src="{%static 'images/Menu.png'%}"
+            width="30px"
+            style="filter: invert(100%)"
+          />
+        </label>
+        <label class="logo"
+          ><h1 id="logotxt">PLUG<span>POST</span></h1></label
+        >
+        <ul>
+          <li><a href="{%url 'lhome'%}" class="not_active">Home</a></li>
+          <li><a href="#" class="active">Blog</a></li>
+          <li><a href="#taketoabout" class="not_active">About us</a></li>
+          <li><a href="{%url 'login'%}" class="not_active">Logout</a></li>
+          <li>
+            <a id="signin" href="#logintext"
+              ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <a href="{%url 'lhome'%}" id="back_btn1"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
+
+    <div class="row" style="margin-top: 20px">
+      <div class="col-lg-4">
+        <img src="{{read.Cover_img.url}}" width="100%" />
+      </div>
+      <div class="col-lg-8">
+        <h1 class="read-title">{{read.Title}}</h1>
+        <h2 class="read-desc">{{read.Desc}}</h2>
+        <h2 class="read-cat">Category : {{read.category}}</h2>
+        <a href="" class="read-profile"
+          ><img
+            src="{{user.User_Img.url}}"
+            width="40px"
+            height="40px"
+            style="border-radius: 50%"
+          />{{user.User_Name}}</a
+        >
+      </div>
+    </div>
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-12">
+        <h2 class="read-article">{{read.Article|linebreaksbr}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <img src="{{read.related_img.url}}" width="600px" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="{% static 'bootstrap/css/bootstrap.min.css' %}"
     />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
   <body>
     <div>
@@ -230,7 +230,7 @@
           <p class="catp">Category: {{ i.category }}</p>
           <p class="descp">{{ i.Desc }}</p>
 
-          <a href="#fill-form">Read More</a>
+          <a href="{%url 'read' i.Blog_id%}">Read More</a>
         </div>
       </div>
 

@@ -531,3 +531,84 @@ color: black;
   color: #f04e36;
   background: black;
 }
+   /**************************************************************************************************************************************/
+   /**************************************************************************************************************************************/
+   /****************************************************        SIGNUP      ****************************************************************/
+   /**************************************************************************************************************************************/
+   /**************************************************************************************************************************************/
+th{
+  font-family: 'poppins';
+  font-size: 20px;
+  color: white;
+  padding: 30px;
+}
+.read-title{
+  font-family: 'poppins';
+  color: #f04e36;
+  font-size: 4em;
+  font-weight: 600;
+
+}
+.read-desc{
+  font-family: 'poppins';
+  color: white;
+  margin-top: 20px;
+  font-size: 2em;
+  font-weight: 500;
+}
+.read-cat{
+  font-family: 'poppins';
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 2em;
+  font-weight: 500;
+}
+.read-user{
+  font-family: 'poppins';
+  color: #717171;
+  font-size: 2.5em;
+  margin-left: 10px;
+  font-weight: 500;
+}
+.read-user-p{
+  font-family: 'poppins';
+  color: white;
+  margin-right: 10px;
+  font-size: 2em;
+ 
+  font-weight: 500;
+}
+.read-profile{
+background-color: white;
+font-family: 'poppins';
+font-size: 20px;
+color:#f04e36;
+border-radius: 20px;
+
+padding-right: 5px;
+
+
+}
+.read-profile:hover{
+  background-color: white;
+  color: #f04e36;
+}
+
+.read-article{
+  font-family: 'poppins';
+  color: white;
+}
+#back_btn1{
+  background-color: #f04e36;
+  color: white;
+  font-size: 25px;
+  border-radius: 20px;
+  transition: 1s;
+  padding: 5px 15px;
+  margin-left: 20px;
+}
+#back_btn1:hover{
+  background-color: white;
+  color: #f04e36;
+}
