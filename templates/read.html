@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="{% static 'bootstrap/css/bootstrap.min.css' %}"
     />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
   <body class="blogbody" style="overflow-x: hidden">
     <div>
@@ -35,12 +35,12 @@
           ><h1 id="logotxt">PLUG<span>POST</span></h1></label
         >
         <ul>
-          <li><a href="{%url 'lhome'%}" class="not_active">Home</a></li>
-          <li><a href="#" class="active">Blog</a></li>
-          <li><a href="#taketoabout" class="not_active">About us</a></li>
-          <li><a href="{%url 'login'%}" class="not_active">Logout</a></li>
+          <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
+          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{%url 'aboutus' %}" class="not_active">About us</a></li>
+          <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
           <li>
-            <a id="signin" href="#logintext"
+            <a id="signin" href="{%url 'contact'%}"
               ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
             >
           </li>
@@ -59,12 +59,17 @@
         <h1 class="read-title">{{read.Title}}</h1>
         <h2 class="read-desc">{{read.Desc}}</h2>
         <h2 class="read-cat">Category : {{read.category}}</h2>
-        <a href="" class="read-profile"
+        <a href="{%url 'userprofile' user.User_Name%}" class="read-profile"
           ><img
             src="{{user.User_Img.url}}"
             width="40px"
             height="40px"
-            style="border-radius: 50%"
+            style="
+              border-radius: 50%;
+
+              margin-right: 10px;
+              margin-left: -10px;
+            "
           />{{user.User_Name}}</a
         >
       </div>
@@ -75,8 +80,94 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12">
+      <div
+        class="col-lg-12"
+        style="display: flex; align-items: center; justify-content: center"
+      >
         <img src="{{read.related_img.url}}" width="600px" />
+      </div>
+    </div>
+    <div class="row" id="down-menu">
+      <div class="col-lg-1">
+        <h1 id="down-menu-txt">PLUG<span>POST</span></h1>
+      </div>
+      <div class="col-lg-1">
+        <ul class="down-menu-ul">
+          <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
+          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{%url 'aboutus' %}" class="not_active">About</a></li>
+          <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-5">
+        <h1 id="logotxt" style="text-align: center; margin: 0">
+          TOP <span>PUBLISHERS</span>
+        </h1>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          {%for i in users%}
+          <a href="" class="down-menu-a">
+            <img
+              src="{{i.User_Img.url}}"
+              width="30px"
+              height="30px"
+            />{{i.User_Name}}
+          </a>
+          {%endfor%}
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.9838249134687!2d77.81361097496374!3d12.714478087577834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae70a25b756a59%3A0xdb248affbdf77512!2sGayathri%20Gardens%20Rd%2C%20Hosur%2C%20Tamil%20Nadu%20635110!5e0!3m2!1sen!2sin!4v1702137253265!5m2!1sen!2sin"
+          width="100%"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div
+        class="col-lg-1"
+        style="display: flex; align-items: center; justify-content: right"
+      >
+        <ul id="down-menu-logo">
+          <li>
+            <a href="https://www.facebook.com/yuvan.prasath.771" target="_blank"
+              ><img src="{%static 'images/Facebook.png'%}" width="40px"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/_.__u1__._/" target="_blank"
+              ><img src="{%static 'images/Instagram.png'%}" width="40px"
+            /></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/yuvanprasathb" target="_blank"
+              ><img src="{%static 'images/Twitter.png'%}" width="40px"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/channel/UCGaozpk8YR2HyAbFn7v7iew"
+              target="_blank"
+              ><img src="{%static 'images/Youtube.png'%}" width="40px"
+            /></a>
+          </li>
+          <li>
+            <a
+              href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfrLTZdvLqxRtTFcClgrVBBTTWkFlgtQLvKGLLVSgXHcmzCqlxsdhRrTqJLxhrQZtTRvCL"
+              target="_blank"
+              ><img src="{%static 'images/Gmail.png'%}" width="40px"
+            /></a>
+          </li>
+        </ul>
       </div>
     </div>
   </body>

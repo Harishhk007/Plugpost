@@ -35,8 +35,8 @@
           ><h1 id="logotxt">PLUG<span>POST</span></h1></label
         >
         <ul>
-          <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
-          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{% url 'lhome' %}" class="active">Home</a></li>
+          <li><a href="{% url 'blog' %}" class="not_active">Blog</a></li>
           <li><a href="{%url 'aboutus' %}" class="not_active">About us</a></li>
           <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
           <li>
@@ -47,66 +47,32 @@
         </ul>
       </nav>
     </div>
-    <h1 id="logintext">PUBLISH A <span>BLOG</span></h1>
-
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <h2 class="bloglabel">Title</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Title }}</span
-      >
-
-      <h2 class="bloglabel">Description</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Desc }}</span
-      >
-
-      <h2 class="bloglabel">Category</h2>
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: -30px;
-        "
-        >{{ form.category }}</span
-      >
-
-      <h2 class="bloglabel">Add A Cover Image</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Cover_img }}</span
-      >
-
-      <h2 class="bloglabel">Write Your Article</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Article|linebreaksbr }}</span
-      >
-
-      <h2 class="bloglabel">Add Related Image</h2>
-      <span style="display: flex; align-items: center; justify-content: center">
-        {{ form.related_img }}</span
-      >
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          display: none;
-        "
-      >
-        {{ form.Blog_User }}</span
-      >
-
-      <span style="display: flex; align-items: center; justify-content: center">
-        <button type="submit" class="publish">Publish</button></span
-      >
-    </form>
-
-    <h1 id="logintext" style="text-align: left; margin-left: 40px">
-      YOUR <span>BLOGS</span>
+    <a href="{%url 'lhome'%}" id="back_btn1"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
+    <h1 id="logintext">USER <span>PROFILE</span></h1>
+    {%for i in user%}
+    <div class="row">
+      <div class="col-lg-3">
+        <img src="{{i.User_Img.url}}" width="100%" />
+      </div>
+      <div class="col-lg-9">
+        <h1 class="up-fullname">{{i.User_Fullname}}</h1>
+        <h2 class="up-username">User Name :{{i.User_Name}}</h2>
+        <h2 class="up-username">Age :{{i.User_Age}}</h2>
+        <h2 class="up-username">Gender :{{i.User_Gender}}</h2>
+        <h2 class="up-username">DOB :{{i.User_Dob}}</h2>
+      </div>
+    </div>
+    {%endfor%}
+    <h1
+      id="logintext"
+      style="text-align: left; margin-left: 15px; margin-top: 30px"
+    >
+      Blogs From <span>This Publisher</span>
     </h1>
-    <div class="card-container" id="course-1">
-      {% for i in yours %}
+    <div class="card-container" id="card-container">
+      {% for i in blogs %}
 
       <div class="card">
         <div class="imgBx"><img src="{{ i.Cover_img.url}}" alt="" /></div>
@@ -115,7 +81,7 @@
           <p class="catp">Category: {{ i.category }}</p>
           <p class="descp">{{ i.Desc }}</p>
 
-          <a href="#fill-form">Read More</a>
+          <a href="{%url 'read' i.Blog_id%}">Read More</a>
         </div>
       </div>
 
@@ -127,8 +93,8 @@
       </div>
       <div class="col-lg-1">
         <ul class="down-menu-ul">
-          <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
-          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{% url 'lhome' %}" class="active">Home</a></li>
+          <li><a href="{% url 'blog' %}" class="not_active">Blog</a></li>
           <li><a href="{%url 'aboutus' %}" class="not_active">About</a></li>
           <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
           <li><a href="">Contact</a></li>

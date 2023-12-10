@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Blog - Plugpost</title>
+    <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {% load static %}
@@ -20,7 +20,7 @@
     />
     <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
-  <body class="blogbody" style="overflow-x: hidden">
+  <body>
     <div>
       <nav>
         <input type="checkbox" id="check" />
@@ -47,67 +47,14 @@
         </ul>
       </nav>
     </div>
-    <h1 id="logintext">PUBLISH A <span>BLOG</span></h1>
+    <a href="{%url 'lhome'%}" id="back_btn1"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
 
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <h2 class="bloglabel">Title</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Title }}</span
-      >
+    <h1 id="so-heading">{{blogcatname}}</h1>
 
-      <h2 class="bloglabel">Description</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Desc }}</span
-      >
-
-      <h2 class="bloglabel">Category</h2>
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: -30px;
-        "
-        >{{ form.category }}</span
-      >
-
-      <h2 class="bloglabel">Add A Cover Image</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Cover_img }}</span
-      >
-
-      <h2 class="bloglabel">Write Your Article</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Article|linebreaksbr }}</span
-      >
-
-      <h2 class="bloglabel">Add Related Image</h2>
-      <span style="display: flex; align-items: center; justify-content: center">
-        {{ form.related_img }}</span
-      >
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          display: none;
-        "
-      >
-        {{ form.Blog_User }}</span
-      >
-
-      <span style="display: flex; align-items: center; justify-content: center">
-        <button type="submit" class="publish">Publish</button></span
-      >
-    </form>
-
-    <h1 id="logintext" style="text-align: left; margin-left: 40px">
-      YOUR <span>BLOGS</span>
-    </h1>
     <div class="card-container" id="course-1">
-      {% for i in yours %}
-
+      {% for i in blog %}
       <div class="card">
         <div class="imgBx"><img src="{{ i.Cover_img.url}}" alt="" /></div>
         <div class="content">
@@ -115,7 +62,7 @@
           <p class="catp">Category: {{ i.category }}</p>
           <p class="descp">{{ i.Desc }}</p>
 
-          <a href="#fill-form">Read More</a>
+          <a href="{%url 'read' i.Blog_id%}">Read More</a>
         </div>
       </div>
 

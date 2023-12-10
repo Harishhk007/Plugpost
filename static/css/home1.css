@@ -585,14 +585,25 @@ font-family: 'poppins';
 font-size: 20px;
 color:#f04e36;
 border-radius: 20px;
-
+border: 3px solid #f04e36;
 padding-right: 5px;
+transition: 1s;
 
 
 }
-.read-profile:hover{
+.read-profile img{
+  border: 3px solid #f04e36;
+  transition: 1s;
   background-color: white;
-  color: #f04e36;
+}
+.read-profile:hover img{
+  border: 3px solid white;
+}
+.read-profile:hover{
+  background-color: #f04e36;
+  color: white;
+  border: 3px solid white;
+  
 }
 
 .read-article{
@@ -611,4 +622,295 @@ padding-right: 5px;
 #back_btn1:hover{
   background-color: white;
   color: #f04e36;
+}
+  /**************************************************************************************************************************************/
+   /**************************************************************************************************************************************/
+   /****************************************************        SEARCH      ****************************************************************/
+   /**************************************************************************************************************************************/
+   /**************************************************************************************************************************************/
+#so-heading{
+    font-family: 'Abel';
+    color: white;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: 15px;
+    text-align: center;
+    font-size: 4em;
+  
+}
+body{
+  scroll-behavior: smooth;
+
+}
+.searchuser img{
+  border-radius: 50%;
+  margin-right:10px ;
+  
+}
+.searchuser{
+  font-family: 'poppins';
+  font-weight: 600;
+  background-color: white;
+  color: #f04e36;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+#about-intro{
+  font-family: 'poppins';
+  color: white;
+  text-align: center;
+  
+  margin: 20px 40px;
+}
+#down-menu{
+  margin: 20px;
+  border-radius: 10px;
+  border: 3px solid #f04e36;
+  box-shadow: 0px 0px 7px #f04e36;
+
+  padding:20px 5px;
+}
+.down-menu-ul{
+  list-style: none;
+
+}
+.down-menu-ul li a{
+  font-size: 25px;
+  font-family: 'poppins';
+  color: #717171;
+  font-weight: 600;
+}
+.down-menu-ul li .active{
+  color: white;
+}
+.down-menu-ul li a:hover{
+  color: white;
+}
+.down-menu-a img{
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.down-menu-a{
+  background-color: white;
+  padding: 5px 15px;
+  margin: 10px;
+  border-radius: 10px;
+  color: #f04e36;
+  font-size: 20px;
+  font-family: 'poppins';
+}
+.down-menu-a:hover{
+  background-color: #f04e36;
+  color: white;
+}
+#down-menu-logo{
+  list-style: none;
+}#down-menu-txt{
+  font-family: 'Abel';
+  color: white;
+  font-weight: 400;
+  writing-mode: vertical-rl;
+transform: rotate(180deg);
+  font-size: 4em;
+}
+#down-menu-txt span{
+  font-family: 'Bebas Neue';
+  color: #f04e36;
+}
+.up-fullname{
+  font-family: 'Abel';
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 4em;
+}
+.up-username{
+  font-family: 'Abel';
+  color: #333;
+  font-weight: 400;
+  font-size: 3em;
+}
+.con-div-facebook{
+  color: #039be5;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px #039be5;
+  }
+  #con-facebook{
+    color: #039be5;
+ 
+    border-radius: 30px;
+  padding: 5px 15px;
+  background-color: white;
+  
+  font-family: 'poppins';
+  font-size: 20px;
+  font-weight: 600;
+    box-shadow: 0px 0px 7px #039be5;
+  }
+  #con-facebook:hover{
+    background-color: #039be5;
+    color: white;
+  }
+  #con-instagram{
+    color: #ee2a7b;
+ 
+    border-radius: 30px;
+  padding: 5px 15px;
+  background-color: white;
+  
+  font-family: 'poppins';
+  font-size: 20px;
+  font-weight: 600;
+    box-shadow: 0px 0px 7px #ee2a7b;
+  }
+  #con-instagram:hover{
+  background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+color: white;}
+
+
+#con-gmail{
+  color: #fbbc05;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px #fbbc05;
+
+}
+
+#con-gmail:hover{
+  color: white;
+  background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);;
+  border: 0;
+}
+#con-whatsapp{
+  color: #05d445;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px #05d445;
+
+}
+#con-whatsapp:hover{
+  color: white;
+  background: #05d445;
+  border: 0;
+}
+
+#con-twitter{
+  color: #307bab;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px #307bab;
+
+}
+#con-twitter:hover{
+  color: white;
+  background: #307bab;
+  border: 0;
+}
+
+
+#con-youtube{
+  color: red;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px red;
+
+}
+#con-youtube:hover{
+  color: white;
+  background: red;
+  border: 0;
+}
+
+#con-phone{
+  color: #f04e36;
+ 
+  border-radius: 30px;
+padding: 5px 15px;
+background-color: white;
+
+font-family: 'poppins';
+font-size: 20px;
+font-weight: 600;
+  box-shadow: 0px 0px 7px #f04e36;
+
+}
+#con-phone:hover{
+  color: white;
+  background: #f04e36;
+  border: 0;
+}
+#enquiry{
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  font-family: 'poppins';
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  outline: 0;
+  margin: auto;
+  display: block;
+  border: 3px solid white;
+}
+#comment{
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  font-family: 'poppins';
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  outline: 0;
+  margin: auto;
+  display: block;
+  border: 3px solid white;
+}
+#enquiry-sub{
+  background-color: white;
+  color: #f04e36;
+  font-size: 20px;
+  font-family: 'poppins';
+  padding: 5px 15px ;
+  border-radius: 10px;
+  border: 0;
+margin: 5px;
+  font-weight: 600;
+  transition: 1s;
+}
+#enquiry-sub:hover{
+  background-color: #f04e36;
+  color: white;
 }

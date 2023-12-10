@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Users
 from .models import Blogs
 from .forms import Usersform
+from django.db.models import Q
 from .forms import Blogform
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
@@ -11,7 +12,8 @@ def home(request):
     return render(request,"home.html")
 def lhome(request):
     your_blog = Blogs.objects.all().order_by('-Blog_id')
-    return render(request,"LHOME.html",{'yours':your_blog})
+    user=Users.objects.all()
+    return render(request,"LHOME.html",{'yours':your_blog,'users':user})
 def login(request):
     if request.method == 'POST':
         user = request.POST.get('loguser')
@@ -82,11 +84,59 @@ def blog(request):
     if 'submitted' in request.GET:
         submitted = True
     your_blog = Blogs.objects.filter(Blog_User=blog_user)
-    return render(request, "Blog.html", {'form': form, 'submitted': submitted,'yours':your_blog})
+    user=Users.objects.all()
+    return render(request, "Blog.html", {'form': form, 'submitted': submitted,'yours':your_blog,'users':user})
 
 def read(request,Blog_id):
     read = get_object_or_404(Blogs, Blog_id=Blog_id)
     name=read.Blog_User
     print(name)
     user = get_object_or_404(Users, User_Name=name)
-    return render(request,"read.html",{"read":read,"user":user})
+    user1=Users.objects.all()
+    return render(request,"read.html",{"read":read,"user":user,'users':user1})
+
+def searchoption(request,blogcat):
+    blogcat1=Blogs.objects.filter(category=blogcat).order_by('-Blog_id')
+    blogcatname=blogcat
+    user=Users.objects.all()
+    return render(request,"search-option.html",{'blog':blogcat1,'blogcatname':blogcatname,'users':user})
+
+def search_blog(request):
+    if request.method == 'POST':
+        query=request.POST.get('searchbar')
+        print(query)  # Get the search query from the request
+        if query:
+            # Split the query into individual words
+            search_words = query.split()
+            search_words1 = query.split()
+
+            # Initialize an empty Q object to construct the query dynamically
+            q_object = Q()
+            q_object1 = Q()
+
+            # Construct OR condition for each word in the search query
+            for word in search_words:
+                q_object |=Q(Title__icontains=word) | Q(Blog_User__icontains=word)
+            for word1 in search_words1:
+                q_object1 |= Q(User_Name__icontains=word1)
+
+            # Perform a query to find titles containing any of the specified words
+            blog_posts = Blogs.objects.filter(q_object)
+            users=Users.objects.filter(q_object1)
+        else:
+            blog_posts = Blogs.objects.none() 
+        user1=Users.objects.all() # Return an empty queryset if no query is provided
+
+        return render(request, 'searchblog.html',{'blog_post':blog_posts,'user':users,'users':user1})
+    
+def aboutus(request):
+    user=Users.objects.all()
+    return render(request,"aboutus.html",{'users':user})
+def userprofile(request, User_Name):
+    user1 = Users.objects.filter(User_Name=User_Name)
+    blogs = Blogs.objects.filter(Blog_User=User_Name)  # Assuming Blog_User is related to Users model
+
+    return render(request, "userprofile.html", {"user": user1, 'blogs': blogs})
+def contact(request):
+    user=Users.objects.all()
+    return render(request,"contact.html",{'users':user})

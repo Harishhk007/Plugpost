@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Blog - Plugpost</title>
+    <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {% load static %}
@@ -9,7 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -20,7 +23,7 @@
     />
     <link rel="stylesheet" href="{% static 'css/home1.css' %}" />
   </head>
-  <body class="blogbody" style="overflow-x: hidden">
+  <body>
     <div>
       <nav>
         <input type="checkbox" id="check" />
@@ -36,91 +39,101 @@
         >
         <ul>
           <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
-          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{% url 'blog' %}" class="not_active">Blog</a></li>
           <li><a href="{%url 'aboutus' %}" class="not_active">About us</a></li>
           <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
           <li>
-            <a id="signin" href="{%url 'contact'%}"
+            <a
+              id="signin"
+              href="{%url 'contact'%}"
+              style="color: white; background-color: #f04e36"
               ><i class="fa fa-phone" style="margin-right: 5px"></i>Contact</a
             >
           </li>
         </ul>
       </nav>
     </div>
-    <h1 id="logintext">PUBLISH A <span>BLOG</span></h1>
-
-    <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <h2 class="bloglabel">Title</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Title }}</span
+    <a href="{%url 'lhome'%}" id="back_btn1"
+      ><i class="fa fa-arrow-left"></i>Back</a
+    >
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+      "
+    >
+      <a
+        href="https://www.facebook.com/yuvan.prasath.771"
+        target="_blank"
+        id="con-facebook"
+        ><i class="fa fa-facebook"></i> Facebook</a
       >
-
-      <h2 class="bloglabel">Description</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Desc }}</span
+      <a
+        href="https://www.instagram.com/_.__u1__._/"
+        target="_blank"
+        id="con-instagram"
+        ><i class="fa fa-instagram"></i> Instagram</a
+      ><a
+        href="https://twitter.com/yuvanprasathb"
+        target="_blank"
+        id="con-twitter"
+        ><i class="fa fa-twitter"></i> Twitter</a
       >
-
-      <h2 class="bloglabel">Category</h2>
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: -30px;
-        "
-        >{{ form.category }}</span
+      <a
+        href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfrLTZdvLqxRtTFcClgrVBBTTWkFlgtQLvKGLLVSgXHcmzCqlxsdhRrTqJLxhrQZtTRvCL"
+        target="_blank"
+        id="con-gmail"
+        ><i class="fa fa-envelope"></i> Email</a
       >
-
-      <h2 class="bloglabel">Add A Cover Image</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Cover_img }}</span
+      <a
+        href="https://www.youtube.com/channel/UCGaozpk8YR2HyAbFn7v7iew"
+        target="_blank"
+        id="con-youtube"
+        ><i class="fa fa-youtube"></i> Youtube</a
       >
-
-      <h2 class="bloglabel">Write Your Article</h2>
-      <span style="display: flex; align-items: center; justify-content: center"
-        >{{ form.Article|linebreaksbr }}</span
+      <a href="tel:+916379120712" target="_blank" id="con-phone"
+        ><i class="fa fa-phone"></i> Phone</a
       >
+      <a
+        href="https://api.whatsapp.com/send/?phone=%2B916379120712&text&type=phone_number&app_absent=0"
+        id="con-whatsapp"
+        ><i class="fa fa-whatsapp"></i> Whatsapp</a
+      >
+    </div>
 
-      <h2 class="bloglabel">Add Related Image</h2>
+    <form
+      action="https://formsubmit.co/yuvanprasath2005@gmail.com"
+      method="POST"
+    >
+      <textarea
+        name="enquiry"
+        id="enquiry"
+        style="width: 90%"
+        rows="7"
+        placeholder="Quick Enquiry"
+      ></textarea>
       <span style="display: flex; align-items: center; justify-content: center">
-        {{ form.related_img }}</span
-      >
-      <span
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          display: none;
-        "
-      >
-        {{ form.Blog_User }}</span
-      >
-
-      <span style="display: flex; align-items: center; justify-content: center">
-        <button type="submit" class="publish">Publish</button></span
-      >
+        <input type="submit" name="enquiry-sub" id="enquiry-sub"
+      /></span>
     </form>
 
-    <h1 id="logintext" style="text-align: left; margin-left: 40px">
-      YOUR <span>BLOGS</span>
-    </h1>
-    <div class="card-container" id="course-1">
-      {% for i in yours %}
-
-      <div class="card">
-        <div class="imgBx"><img src="{{ i.Cover_img.url}}" alt="" /></div>
-        <div class="content">
-          <h4>{{ i.Title }}</h4>
-          <p class="catp">Category: {{ i.category }}</p>
-          <p class="descp">{{ i.Desc }}</p>
-
-          <a href="#fill-form">Read More</a>
-        </div>
-      </div>
-
-      {% endfor %}
-    </div>
+    <form
+      action="https://formsubmit.co/yuvanprasath2005@gmail.com"
+      method="POST"
+    >
+      <textarea
+        name="comment"
+        id="comment"
+        style="width: 90%"
+        rows="7"
+        placeholder="Add Comment"
+      ></textarea>
+      <span style="display: flex; align-items: center; justify-content: center">
+        <input type="submit" name="enquiry-sub" id="enquiry-sub"
+      /></span>
+    </form>
     <div class="row" id="down-menu">
       <div class="col-lg-1">
         <h1 id="down-menu-txt">PLUG<span>POST</span></h1>
@@ -128,10 +141,10 @@
       <div class="col-lg-1">
         <ul class="down-menu-ul">
           <li><a href="{% url 'lhome' %}" class="not_active">Home</a></li>
-          <li><a href="{% url 'blog' %}" class="active">Blog</a></li>
+          <li><a href="{% url 'blog' %}" class="not_active">Blog</a></li>
           <li><a href="{%url 'aboutus' %}" class="not_active">About</a></li>
           <li><a href="{%url 'login' %}" class="not_active">Logout</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="" class="active">Contact</a></li>
         </ul>
       </div>
       <div class="col-lg-5">

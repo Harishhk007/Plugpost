@@ -24,8 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',views.lhome,name="lhome"),
     path('',views.login,name="login"),
+    path('aboutus/',views.aboutus,name="aboutus"),
+    path('contact/',views.contact,name="contact"),
     path('signup/',views.signup,name="signup"),
     path('blog/',views.blog,name="blog"),
     path('read/<int:Blog_id>/',views.read,name="read"),
+    path('search-option/<str:blogcat>',views.searchoption,name="searchoption"),
+    path('search-blog/',views.search_blog,name="search_blog"),
+    path('userprofile/<str:User_Name>/',views.userprofile,name="userprofile"),
     
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
